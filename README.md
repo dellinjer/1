@@ -1,4 +1,4 @@
-# 1    public partial class LOGIN : Form
+    public partial class LOGIN : Form
     {
         public LOGIN()
         {
@@ -79,3 +79,86 @@
         }
     }
 }
+________________________________________________________________________________
+{
+    internal class DB
+    {
+        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=popa;uid=root;password=root");
+
+        public void openConnection()
+        {
+            if (connection.State != System.Data.ConnectionState.Closed)
+               connection.Open();
+            
+        }
+
+        public void closeConnection()
+        {
+            if (connection.State != System.Data.ConnectionState.Open)
+                connection.Close();
+        }
+        public MySqlConnection getConnection()
+        {
+            return connection;
+        }
+    }
+}
+________________________________________________________________________
+{
+    public partial class RegisterForm : Form
+    {
+        public RegisterForm()
+        {
+            InitializeComponent();
+            userName.Text = "Введите имя";
+
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.ForeColor = Color.Green;
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.ForeColor = Color.Red;
+        }
+
+        Point lastPoint;
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+        Point thePoint;
+
+        private void label1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - thePoint.X;
+                this.Top += e.Y - thePoint.Y;
+            }
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            thePoint = new Point(e.X, e.Y);
+        }
+    }
+}
+______________________________________________________________________________
