@@ -1,4 +1,5 @@
 (это код для окна авторизации)
+
     public partial class LOGIN : Form
     {
         public LOGIN()
@@ -82,10 +83,10 @@
 }
 ________________________________________________________________________________
 ( это код для подключения к бд)
-{
+
     internal class DB
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=popa;uid=root;password=root");
+        MySqlConnection connection = newMySqlConnection("server=localhost;port=3306;database=popa;uid=root;password=root");
 
         public void openConnection()
         {
@@ -104,10 +105,9 @@ ________________________________________________________________________________
             return connection;
         }
     }
-}
 ________________________________________________________________________
 (это окно для регистрации)
-{
+
     public partial class RegisterForm : Form
     {
         public RegisterForm()
@@ -163,11 +163,10 @@ ________________________________________________________________________
             thePoint = new Point(e.X, e.Y);
         }
     }
-}
+
 ______________________________________________________________________________
 (класс для градиент панели)
-namespace WinFormsApp188888888888888888.Properties
-{
+
     internal class GradientPanel : Panel
     {
         public Color ColorTop { get; set; }
@@ -180,7 +179,6 @@ namespace WinFormsApp188888888888888888.Properties
             base .OnPaint(e);
         }
     }
-}
 ____________________________________________________________________________________
 заходим в вижл студио-> виндоус формс-> создаем проект и ставим виндоус ворм -> создался проект с пустым окном->удаляем Forms1 которая находится с правой стороны.-> правой кнопкой мыши назымаем на весь проект и выбираем добавить -> форма виндоус -> даем имя новому окну->  уменьшаем окно -> заходим в свойстава окна -> Text LoginForm-> Size 450X660-> FormBorderStyle в нем ставим None->
 
